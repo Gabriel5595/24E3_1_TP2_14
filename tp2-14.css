@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00aaff;
+    padding: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile,
+.personal-info,
+.hobbies,
+.friends,
+.suggestions {
+    margin-top: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    border-radius: 50%;
+}
+
+.hobby-list,
+.friends-list,
+.suggestions-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.hobby-list img,
+.friends-list img,
+.suggestions-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+@media (min-width: 1024px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: auto 1fr 1fr;
+        gap: 20px;
+    }
+
+    .profile {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: left;
+    }
+
+    .personal-info {
+        grid-column: 2;
+        grid-row: 1 / span 3;
+        text-align: left;
+    }
+
+    .hobbies {
+        grid-column: 3;
+        grid-row: 1 / span 3;
+    }
+
+    .friends {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .suggestions {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .profile-pic {
+        width: 150px;
+    }
+
+    .hobby-list img,
+    .friends-list img,
+    .suggestions-list img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #00aaff;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #222;
+        --text-color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #fff;
+        --text-color: #000;
+    }
+}
